@@ -1,0 +1,13 @@
+<h1><%= @person.name %>#show</h1>
+<p>
+  <label><a href="/cars/new/?id=<%= @person.id %>">Add car</a></label>
+  <ul class="cars">
+
+    <% @person.cars.each do |c| %>
+      <li>
+        <%= c.model %> - <%= c.year %> [<a title="edit" href="/car/edit/<%= c.id %>">e</a>][<a title="remove" href="/car/destroy/<%= c.id %>">x</a>]
+      </li>
+    <% end %>
+
+  </ul>
+</p>

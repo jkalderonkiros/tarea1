@@ -1,0 +1,52 @@
+<h1>All users</h1>
+<p><a href="/people/new">New</a></p>
+<ul class="people">
+<table>
+  <tr>
+    <th></th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <% @people.each do |p| %>
+    <tr class="item">
+    	<td class="options">
+        [<a class="edit" title="edit" href="/people/<%= p.id %>/edit">e</a>]
+        [<a class="delete" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
+      </td>
+      <td>
+        <%= p.id %>
+      </td>
+      <td><%= link_to p.name, p %></td>
+      <td><%= p.email %></td>
+      <td>
+          <a class="viewCars" rel="<%= p.id %>" href="javascript:void(0);">view detail</a>
+      </td>
+    </tr>
+    <tr class="cars" id="<%= p.id %>">
+      <td colspan="5">
+        <table>
+              <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Year</th>
+              </tr>
+              <% p.cars.each do |c| %>            
+              <tr>
+                <td class="options">
+                  [<a class="edit" title="edit" href="/cars/<%= p.id %>/edit">e</a>]
+                  [<a class="delete" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
+                </td>
+                <td><%= c.id %></td>
+                <td><%= c.model %></td>
+                <td><%= c.year %></td>
+              </tr>
+              <% end %>
+            </table>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</ul>

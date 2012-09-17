@@ -1,0 +1,39 @@
+#header {
+/*  border: 1px solid red;*/
+  height: 55px;
+  ul {
+
+    li {
+      float: left;
+      list-style-type: none;
+      margin-right: 20px;
+      padding-right: 10px;
+      border-right: 1px solid #BBBBBB;
+    }
+  }	
+}
+
+#container {
+  border: 1px solid #BBBBBB;
+}
+
+#footer {
+  height: 55px;
+  ul {
+    li {
+      float: left;
+      list-style-type: none;
+      margin-right: 20px;
+      padding-right: 10px;
+      border-right: 1px solid #BBBBBB;
+    }
+  }	
+}
+
+tr.cars { 
+  display: none; 
+  border: 1px solid #BBBBBB;
+}
+
+
+.clear { clear:both; }

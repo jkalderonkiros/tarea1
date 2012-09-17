@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarea1</title>
+  <link href="/assets/tarea1.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/people">People</a></li>
+      </ul>      
+    </div>
+    <div id="container">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/people">People</a></li>
+      </ul>
+    </div>
+  </div>
+  <script src="/assets/tarea1.js?body=1" type="text/javascript"></script>
+</body>
+</html>

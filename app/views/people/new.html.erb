@@ -1,0 +1,34 @@
+<h1>New Person</h1>
+<p>
+  <%= form_for(@person) do |p| %>
+    <p>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </p>
+    <p>
+      <%= p.label :email %>
+      <%= p.text_field :email %>
+    </p>
+
+    <div class="cars">
+      <div>
+        <% @person.cars.each do |c| %>
+          <p><%= c.model %> - <%= c.year %></p>
+        <% end %>
+      </div>
+      <p>
+        <label for="car_model">Model</label>
+        <input id="car_model" type="text" />
+      
+        <label for="car_year">Year</label>
+        <input id="car_year" type="text" />
+        <a class="addCar" href="javascript:void(0);">Add</a>
+      </p>
+    </div>
+    
+    
+    <p>
+      <%= p.submit "New user", class: "btn btn-large btn-primary" %>
+    </p>
+  <% end %>
+</p>
