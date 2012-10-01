@@ -13,7 +13,7 @@
       <%= p.text_field :year %>
     </p>
     <p>
-        <%= p.submit "Save", class: "btn btn-large btn-primary" %>
+        <%= p.submit "New user", class: "btn btn-large btn-primary" %>
     </p>
   <% end %>
 </p>

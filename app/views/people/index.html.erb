@@ -1,6 +1,6 @@
 <h1>All users</h1>
 <p><a href="/people/new">New</a></p>
-<ul class="people">
+
 <table>
   <tr>
     <th></th>
@@ -9,11 +9,13 @@
     <th>Email</th>
     <th></th>
   </tr>
+  <% i = 0 %>
   <% @people.each do |p| %>
-    <tr class="item">
+    <% i += 1 %>
+    <tr class="item <%= (i % 2) == 1 ? "odd" : "" %>">
     	<td class="options">
         [<a class="edit" title="edit" href="/people/<%= p.id %>/edit">e</a>]
-        [<a class="delete" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
+        [<a class="delete person" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
       </td>
       <td>
         <%= p.id %>
@@ -33,11 +35,13 @@
                 <th>Model</th>
                 <th>Year</th>
               </tr>
-              <% p.cars.each do |c| %>            
-              <tr>
+              <% ci = 0 %>
+              <% p.cars.each do |c| %>
+	      <% ci += 1 %>
+              <tr class="carItem <%= (ci % 2) == 1 ? "odd" : "" %>">
                 <td class="options">
-                  [<a class="edit" title="edit" href="/cars/<%= p.id %>/edit">e</a>]
-                  [<a class="delete" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
+                  [<a class="edit" rel="<%= c.id %>" title="edit" href="/cars/<%= c.id %>/edit">e</a>]
+                  [<a class="delete car" rel="<%= c.id %>" title="remove" href="javascript:void(0);">x</a>]
                 </td>
                 <td><%= c.id %></td>
                 <td><%= c.model %></td>
@@ -49,4 +53,4 @@
     </tr>
   <% end %>
 </table>
-</ul>
+

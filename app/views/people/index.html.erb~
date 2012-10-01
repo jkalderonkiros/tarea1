@@ -1,9 +1,56 @@
 <h1>All users</h1>
 <p><a href="/people/new">New</a></p>
-<ul class="people">
+
+<table>
+  <tr>
+    <th></th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <% i = 0 %>
   <% @people.each do |p| %>
-    <li>
-      <%= link_to p.name, p %>
-    </li>
+    <% i += 1 %>
+    <tr class="item <%= (i % 2) == 1 ? "odd" : "" %>">
+    	<td class="options">
+        [<a class="edit" title="edit" href="/people/<%= p.id %>/edit">e</a>]
+        [<a class="delete person" rel="<%= p.id %>" title="remove" href="javascript:void(0);">x</a>]
+      </td>
+      <td>
+        <%= p.id %>
+      </td>
+      <td><%= link_to p.name, p %></td>
+      <td><%= p.email %></td>
+      <td>
+          <a class="viewCars" rel="<%= p.id %>" href="javascript:void(0);">view detail</a>
+      </td>
+    </tr>
+    <tr class="cars" id="<%= p.id %>">
+      <td colspan="5">
+        <table>
+              <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Year</th>
+              </tr>
+              <% ci = 0 %>
+              <% p.cars.each do |c| %>
+	      <% ci += 1 %>
+              <tr class="car <%= (ci % 2) == 1 ? "odd" : "" %>">
+                <td class="options">
+                  [<a class="edit" rel="<%= c.id %>" title="edit" href="/cars/<%= c.id %>/edit">e</a>]
+                  [<a class="delete car" rel="<%= c.id %>" title="remove" href="javascript:void(0);">x</a>]
+                </td>
+                <td><%= c.id %></td>
+                <td><%= c.model %></td>
+                <td><%= c.year %></td>
+              </tr>
+              <% end %>
+            </table>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
+

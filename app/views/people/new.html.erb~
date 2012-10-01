@@ -2,34 +2,16 @@
 <p>
   <%= form_for(@person) do |p| %>
     <p>
-    <%= p.label :name %>
-    <%= p.text_field :name %>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
     </p>
     <p>
-    <%= p.label :email %>
-    <%= p.text_field :email %>
+      <%= p.label :email %>
+      <%= p.text_field :email %>
     </p>
-
     <p>
-      <%= p.cars.each do |c| %>
-        <div class="car">
-          <%= c.label :model %><br />
-          <%= c.text_field :model %>
-
-          <%= c.label :year %><br />
-          <%= c.text_field :year %>
-        </div> 
-
-        <% unless c.object.new_record? %>
-          <%= c.label :_delete, 'Remove:' %>
-          <%= c.check_box :_delete %>          
-        <% end %>
-
-      <% end %>
-    </p>
-    
-    <p>
-      <%= p.submit "New user", class: "btn btn-large btn-primary" %>
+	<!--<input type="button" value="New user" class="save" />-->
+        <%= p.submit "New user", class: "btn btn-large btn-primary" %>
     </p>
   <% end %>
 </p>

@@ -1,2 +1,16 @@
-<h1>People#edit</h1>
-<p>Find me in app/views/people/edit.html.erb</p>
+<h1>Edit Person</h1>
+<p>
+  <%= form_for(@person) do |p| %>
+    <p>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </p>
+    <p>
+      <%= p.label :email %>
+      <%= p.text_field :email %>
+    </p>
+    <p>
+        <%= p.submit "Save", class: "btn btn-large btn-primary" %>
+    </p>
+  <% end %>
+</p>

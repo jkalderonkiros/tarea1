@@ -8,7 +8,7 @@ Admin =
   delPerson: () -> 
     $('a.delete.person').click ->
       if confirm("Are you sure you want to delete this person?")
-        anchor = @
+        anchor = this
         uri = '/people/' + $(this).attr("rel")
         $.ajax uri,
           type: 'DELETE'
@@ -17,7 +17,7 @@ Admin =
   delCar: () ->
     $('a.delete.car').click ->
       if confirm("Are you sure you want to delete this car?")
-        anchor = @
+        anchor = this
         uri = '/cars/' + $(this).attr("rel")
         $.ajax uri,
           type: 'DELETE'
@@ -38,13 +38,13 @@ Admin =
               Admin.clearFields()
   showCars: () ->
     $('a.viewCars').click ->
-      id = $(@).attr("rel")
+      id = $(this).attr("rel")
       item = $('#' + id)
-      if $(@).html() == 'view detail'
-        $(@).html('hide detail')
+      if $(this).html() == 'view detail'
+        $(this).html('hide detail')
         item.show()
       else
-        $(@).html('view detail')
+        $(this).html('view detail')
         item.hide()
   clearFields: () ->
     $('#car_model').val('')

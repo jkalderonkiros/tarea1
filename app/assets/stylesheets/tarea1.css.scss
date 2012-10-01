@@ -33,7 +33,21 @@
 tr.cars { 
   display: none; 
   border: 1px solid #BBBBBB;
+  table {
+    border: 1px solid #BBBBBB;
+  }
 }
 
-
 .clear { clear:both; }
+
+table {
+  tr.odd {
+    background: #DBEAF9;
+  }
+}
+
+ul {
+  li.odd {
+    background: #DBEAF9;
+  }
+}

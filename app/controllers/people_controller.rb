@@ -22,7 +22,6 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
-    redirect_to @person
   end
 
   def update

@@ -1,11 +1,26 @@
 <h1><%= @person.name %>#show</h1>
 <p>
-  <label><a href="/cars/new/?id=<%= @person.id %>">Add car</a></label>
-  <ul class="cars">
+  <p>
+    <label for="name">Name: </label><span><%= @person.name %></span>
+    <label for="name">Email: </label><span><%= @person.email %></span>
+    <input id="id" value="<%= @person.id %>" type="hidden" />
+  </p>
+  <div class="cars">
+    <p>
+      <label for="car_model">Model</label>
+      <input id="car_model" type="text" />
 
+      <label for="car_year">Year</label>
+      <input id="car_year" type="text" />
+      <a class="addCar" href="javascript:void(0);">Add car</a>
+    </p>
+  </div>
+  <ul id="cars">
+    <% i = 0 %>
     <% @person.cars.each do |c| %>
-      <li>
-        <%= c.model %> - <%= c.year %> [<a title="edit" href="/car/edit/<%= c.id %>">e</a>][<a title="remove" href="/car/destroy/<%= c.id %>">x</a>]
+      <% i += 1 %>
+      <li class="carItem <%= (i % 2) == 1 ? "odd" : "" %>">
+        [<a title="edit" href="/cars/<%= c.id %>/edit">e</a>][<a class="delete car" rel="<%= c.id %>" title="remove" href="javascript:void(0);">x</a>] <%= c.model %> - <%= c.year %>
       </li>
     <% end %>
 

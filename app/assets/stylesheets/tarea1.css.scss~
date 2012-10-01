@@ -30,10 +30,18 @@
   }	
 }
 
-.people {
-  ul {
-    li {
-      list-style-type: none;
-    }
+tr.cars { 
+  display: none; 
+  border: 1px solid #BBBBBB;
+  table {
+    border: 1px solid #BBBBBB;
+  }
+}
+
+.clear { clear:both; }
+
+table {
+  tr.odd {
+    background: #DBEAF9;
   }
 }
